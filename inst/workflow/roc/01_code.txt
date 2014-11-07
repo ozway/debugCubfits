@@ -1,0 +1,25 @@
+For files under ./code and ./code_plot
+
+- ./code/00-set_env_*.r
+  Set environment variables.
+  These should be copied to the upper directory and renamed as "00-set_env.r".
+
+- ./code/00-*.r
+  Codes for setting work flows.
+
+- ./code/0*-*.r
+  Codes for data analysis and simulation.
+
+- ./code/s*-*.r
+  Extra codes for simulation only.
+
+- ./code_plot/*-plot*.r
+  Mainly for summarizing and plotting the outputs of work flows.
+
+- ./code_plot_nps/*-plot*.r
+  No scaling in post processing.
+  Mainly for summarizing and plotting the outputs of work flows.
+
+- ./code_plot_ps/*-plot*.r
+  Scaling in post processing.
+  Mainly for summarizing and plotting the outputs of work flows.
