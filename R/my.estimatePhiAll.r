@@ -45,9 +45,6 @@ my.estimatePhiAll.mclapply <- function(fitlist, reu13.list, y.list, n.list,
     E.Phi = .CF.OP$E.Phi, lower.optim = .CF.OP$lower.optim,
     upper.optim = .CF.OP$upper.optim, lower.integrate = .CF.OP$lower.integrate,
     upper.integrate = .CF.OP$upper.integrate, control = list()){
-  
-  #browser();  
-  
   ret <- parallel::mclapply(1:length(reu13.list),
            function(i.gene){ # i'th gene.
              .cubfitsEnv$my.estimatePhiOne(fitlist, reu13.list[[i.gene]],

@@ -48,7 +48,6 @@ my.proposePhiAll.RW_Norm <- function(phi.Curr){
   ###   dlnorm(phi, m, s, log = TRUE)
   lir <- -log.phi.Prop + log.phi.Curr    # Jacobin
   id <- which(propScale.prev != propScale)
-##Accounting for some sort of bias?
   if(length(id) > 0){
     tmp <- lapply(id,
              function(i.orf){

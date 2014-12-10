@@ -46,6 +46,7 @@ find.prop.model.nse <- function(b.Init, reu13.df, phi.bin, phi.Obs.scale = 1
   for(aa in u.aa){
     b.Init[[aa]]$coef.mat <- -b.Init[[aa]]$coef.mat ## converting from delta eta to delta t
     b.Init[[aa]]$coef.mat <- matrix(rbind(b.Init[[aa]]$coef.mat, b.Init[[aa]]$coef.mat[2,]), nrow=3)
+    b.Init[[aa]]$coef.mat[1,] <- b.Init[[aa]]$coef.mat[1,] * -1 ## (better?) converting from delta eta to delta t
     b.Init[[aa]]$coef.mat[2,] <- b.Init[[aa]]$coef.mat[2,] * delta_a12
     b.Init[[aa]]$coef.mat[3,] <- b.Init[[aa]]$coef.mat[3,] * mean(reu13.df[[aa]]$Pos) * a_2
     exponent <- x %*% b.Init[[aa]]$coef.mat

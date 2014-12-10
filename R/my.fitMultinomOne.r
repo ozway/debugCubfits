@@ -68,9 +68,6 @@ my.fitMultinomOne.roc <- function(reu13.df.aa, phi, yaa, naa, phi.new = NULL,
 my.fitMultinomOne.nsef <- function(reu13.df.aa, phi, yaa, naa, phi.new = NULL,
     coefstart = NULL, x.arg = FALSE, y.arg = FALSE, qr.arg = FALSE){
   ### If phi.new is not NULL, it means the caller is in MCMC steps.
-  browser();
-  print("in my.fitMultinomOne!")
-  cat("in my.fitMultinomOne!")
   if(!is.null(phi.new)){
     tmp.phi <- rep(phi.new, naa)
   } else{
@@ -81,9 +78,6 @@ my.fitMultinomOne.nsef <- function(reu13.df.aa, phi, yaa, naa, phi.new = NULL,
   ret <- VGAM::vglm(reu13.df.aa$Codon ~ tmp.phi:reu13.df.aa$Pos,
                     VGAM::multinomial, coefstart = coefstart,
                     x.arg = x.arg, y.arg = y.arg, qr.arg = qr.arg)
-  coefficients <- ret@coefficients
-  ## convert delta.omega to delta.eta
-  coefficients <- -coefficients
   ret <- list(coefficients = ret@coefficients,
               coef.mat = matrix(ret@coefficients, nrow = 2, byrow = TRUE),
               R = ret@R)

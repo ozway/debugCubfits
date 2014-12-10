@@ -31,9 +31,6 @@ my.logdmultinomCodAllR.lapply <- function(b, phi, y, n, reu13.df = NULL){
 my.logdmultinomCodAllR.mclapply <- function(b, phi, y, n, reu13.df = NULL){
   ### Returns log posterior of codon draws for all amino acids.
   ### For each element, it is a vector of length "# of genes".
-
-#  browser();
-
   lpclist <- parallel::mclapply(1:length(y),
                function(i.aa){ # i'th amino acid.
                  .cubfitsEnv$my.logdmultinomCodOne(

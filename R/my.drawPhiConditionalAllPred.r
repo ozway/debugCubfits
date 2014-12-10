@@ -19,15 +19,6 @@ my.drawPhiConditionalAllPred <- function(phi.Curr, y, n, b,
               phi.Curr, y, n, b, p.Curr, reu13.df = reu13.df)
   lpProp <- .cubfitsEnv$my.logPosteriorAllPred(
               prop$phi.Prop, y, n, b, p.Curr, reu13.df = reu13.df)
-
-##One of these contains NaN in the NSE model
-##I suspect lpProp, proposed Phi values
-
-if (TRUE%in%is.nan(lpProp)){	print("ALERT ALERT ALERT lpProp has NaN!");	}
-if (TRUE%in%is.nan(lpCurr)){	print("ALERT ALERT ALERT lpCurr has NaN!");	}
-if (TRUE%in%is.nan(prop$lir)){	print("ALERT ALERT ALERT prop$lir has NaN!");	}
-
-
   logAcceptProb <- lpProp - lpCurr - prop$lir
 
   ### Run MH acceptance rule.

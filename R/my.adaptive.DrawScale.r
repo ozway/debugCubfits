@@ -1,4 +1,4 @@
-t### Get the specific function according to the options.
+### Get the specific function according to the options.
 get.my.update.DrawScale <- function(adaptive){
   if(!any(adaptive[1] %in% .CF.CT$adaptive)){
     stop("adaptive is not found.")
@@ -22,12 +22,6 @@ my.update.DrawScale.simple <- function(var.names, default.DrawScales){
     ### Update new scaling factors.
     ret <- my.DrawScale.scaling(var.names[i], .cubfitsEnv$curr.renew,
                                 default.DrawScales[i])
-
-#if(var.names[i]=="phi")
-#{
-#write(matrix(ret, nrow=1), "ne-phiscales.csv", ncolumns=length(ret), append=TRUE);
-#browser();
-#}
 
     ### Update global.
     .cubfitsEnv$all.DrawScale[[var.names[i]]] <- ret

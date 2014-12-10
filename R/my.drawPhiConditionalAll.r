@@ -20,29 +20,7 @@ my.drawPhiConditionalAll <- function(phi.Curr, phi.Obs, y, n, b,
               phi.Curr, phi.Obs, y, n, b, p.Curr, reu13.df = reu13.df)
   lpProp <- .cubfitsEnv$my.logPosteriorAll(
               prop$phi.Prop, phi.Obs, y, n, b, p.Curr, reu13.df = reu13.df)
-	
-# tmp.phi <- rep(prop$phi.Prop, n[[4]])
-# xm <- matrix(cbind(1, tmp.phi * reu13.df[[4]]$Pos), ncol = 2)
-# baamat <- matrix(b[[4]], nrow = 2, byrow = TRUE)
-# lp.vec <- my.inverse.mlogit(xm %*% baamat, log = TRUE)
-
-##One of these contains NaN in the NSE model
-##I suspect lpProp, proposed Phi values
-
-#write(matrix(prop$phi.Prop, nrow=1), "ne-phiprop.csv", ncolumns=length(prop$phi.Prop), append=TRUE);
-#write(matrix(phi.Curr, nrow=1), "ne-phicurr.csv", ncolumns=length(phi.Curr), append=TRUE);
-
-# if (TRUE%in%is.nan(lpProp)){	print("ALERT ALERT ALERT lpProp has NaN!"); browser();
-# while(TRUE%in%is.nan(lpProp)){	print("ALERT ALERT ALERT lpProp has NaN!"); browser(); }
-# }
-
-#if (TRUE%in%is.nan(lpCurr)){	print("ALERT ALERT ALERT lpCurr has NaN!"); browser();	}
-#if (TRUE%in%is.nan(prop$lir)){	print("ALERT ALERT ALERT prop$lir has NaN!"); browser();	}
-
-
   logAcceptProb <- lpProp - lpCurr - prop$lir
-
-#browser();
 
   ### Run MH acceptance rule.
   u <- runif(length(phi.Curr))

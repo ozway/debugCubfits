@@ -46,8 +46,6 @@ my.fitMultinomAll.mclapply <- function(reu13.df, phi, y, n, phi.new = NULL,
     .GlobalEnv$.Random.seed.org <- .GlobalEnv$.Random.seed
   }
 
-#  browser();
-
   ret <- parallel::mclapply(1:length(reu13.df),
            function(i.aa){ # i'th amino acid.
              .cubfitsEnv$my.fitMultinomOne(reu13.df[[i.aa]], phi, y[[i.aa]],
