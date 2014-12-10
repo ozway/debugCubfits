@@ -40,7 +40,7 @@ SEXP invmlogit(SEXP R_z, SEXP R_nrow, SEXP R_ncol){
 		// R_p has one extra column than R_z.
 		*(C_tmp + ncol) = 0.0;
 
-		// Call stable_exp to updae C_tmp.
+		// Call stable_exp to update C_tmp.
 		e_step_with_stable_exp(&n_category, C_tmp, &tmp_total_sum,
 			&tmp_scale_exp, &tmp_flag_out_range);
 
